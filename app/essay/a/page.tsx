@@ -178,6 +178,8 @@ export default function VariantA() {
         </DialogueTurn>
       </div>
 
+      <div className="cx-rule mx-[16%]" />
+
       {/* ═══ Communication vs Creation comparison ═══ */}
       <ScrollComparison
         before="43%"
@@ -185,8 +187,6 @@ export default function VariantA() {
         label="of a knowledge worker's time spent communicating, not creating"
         source="Microsoft Work Trend Index"
       />
-
-      <div className="cx-rule mx-[16%]" />
 
       {/* ═══════════════════════════════════════════ */}
       {/* PART TWO — The End of Bullshit Jobs */}
@@ -201,13 +201,6 @@ export default function VariantA() {
           <p>Early in my time on the East Coast, I got to meet and become friends with the late, great David Graeber. His core argument was simple and devastating: a huge proportion of the modern workforce is employed in jobs that even the workers themselves secretly believe are pointless.</p>
         </DialogueTurn>
       </div>
-
-      {/* ═══ SIGNATURE MOMENT: 37% felt jobs were pointless ═══ */}
-      <BigNumberInterrupt
-        number="37%"
-        label="of British workers felt their jobs didn't contribute meaningfully to the world"
-        source="YouGov (via David Graeber)"
-      />
 
       <div className="px-[8%] md:px-[16%]">
         <DialogueTurn speaker="mary">
