@@ -53,10 +53,14 @@ export default function VariantA() {
       </section>
 
       {/* ═══════════════════════════════════════════ */}
-      {/* META SECTIONS — Collapsible accordions */}
+      {/* PREFACE — Collapsible accordions */}
       {/* ═══════════════════════════════════════════ */}
-      <section className="py-16">
-        <CollapsibleMeta title="Preface — The Reason We Wrote This">
+      <section className="py-16 px-[8%] md:px-[16%]">
+        <RevealOnScroll>
+          <h2 className="font-serif text-3xl md:text-4xl text-paper mb-3">Preface</h2>
+          <p className="font-sans text-sm md:text-base text-muted/60 mb-10">Tap into the sections below for background on who we are and why we are writing this.</p>
+        </RevealOnScroll>
+        <CollapsibleMeta title="The Reason We Wrote This">
           <p>People like to say crazy shit on the Internet. This isn&apos;t that.</p>
           <p>Over the past several weeks, our collective discourse on the possibilities of an AI-shaped future has been shaken by speculative fiction in several forms. The recent piece from Citrini Research imagining a &quot;2028 Global Intelligence Crisis&quot; rocked financial markets, wiped hundreds of billions in market capitalization from software and payments stocks, and was signal-boosted by everyone from Michael Burry to TechCrunch.</p>
           <p>The discourse has been wild and, frankly, ungrounded. These essays and the &quot;AI is all hype&quot; response offer a false binary in which either AI is about to annihilate the economy, or it&apos;s all a bubble and nothing will change.</p>

@@ -41,7 +41,7 @@ export default function ClosingSignature() {
               alt="William"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(1) brightness(0.7) contrast(1.2)" }}
+              style={{ filter: "invert(1) brightness(0.85)" }}
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function ClosingSignature() {
               alt="Mary"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(1) brightness(0.7) contrast(1.2)" }}
+              style={{ filter: "invert(1) brightness(0.85)" }}
             />
           </div>
         </div>

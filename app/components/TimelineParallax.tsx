@@ -70,7 +70,7 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
   return (
     <div
       ref={ref}
-      className="relative min-h-[70vh] flex items-center px-[8%] md:px-[16%]"
+      className="relative py-12 md:py-16 flex items-center px-[8%] md:px-[16%]"
     >
       <div className="absolute left-[8%] md:left-[12%] top-0 bottom-0 w-px bg-paper/5" />
       <div

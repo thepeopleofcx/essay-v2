@@ -9,8 +9,8 @@ interface BigNumberInterruptProps {
 }
 
 /**
- * SIGNATURE MOMENT #1: Full-viewport stat interrupt
- * The number fills the entire screen as you scroll past it.
+ * Stat interrupt — still dramatic but more integrated into essay flow.
+ * Reduced whitespace, smaller scale, gold accent line.
  */
 export default function BigNumberInterrupt({ number, label, source, className = "" }: BigNumberInterruptProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,29 +35,29 @@ export default function BigNumberInterrupt({ number, label, source, className = 
   return (
     <div
       ref={ref}
-      className={`relative flex min-h-screen items-center justify-center overflow-hidden px-[8%] ${className}`}
+      className={`relative py-16 md:py-24 px-[8%] md:px-[16%] ${className}`}
     >
       <div className="text-center">
         <span
-          className={`block font-serif leading-[0.85] tracking-tight text-paper transition-all duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`block font-serif leading-[0.85] tracking-tight text-paper transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             visible
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 translate-y-12 scale-95"
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
           }`}
-          style={{ fontSize: "clamp(5rem, 20vw, 18rem)" }}
+          style={{ fontSize: "clamp(3rem, 12vw, 8rem)" }}
         >
           {number}
         </span>
         <p
-          className={`mt-6 font-sans text-lg md:text-xl text-muted max-w-lg mx-auto transition-all duration-[1s] delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`mt-4 font-sans text-sm md:text-base text-muted max-w-md mx-auto transition-all duration-[0.8s] delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           {label}
         </p>
         {source && (
           <p
-            className={`mt-3 font-sans text-xs uppercase tracking-[0.24em] text-muted/50 transition-all duration-[1s] delay-500 ${
+            className={`mt-2 font-sans text-xs uppercase tracking-[0.24em] text-muted/40 transition-all duration-[0.8s] delay-400 ${
               visible ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -67,8 +67,8 @@ export default function BigNumberInterrupt({ number, label, source, className = 
       </div>
 
       <div
-        className={`absolute bottom-[15%] left-1/2 h-px bg-[#C9A55C] transition-all duration-[1.6s] delay-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          visible ? "w-24 -translate-x-1/2 opacity-60" : "w-0 -translate-x-1/2 opacity-0"
+        className={`mx-auto mt-8 h-px bg-[#C9A55C] transition-all duration-[1.4s] delay-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          visible ? "w-16 opacity-40" : "w-0 opacity-0"
         }`}
       />
     </div>
