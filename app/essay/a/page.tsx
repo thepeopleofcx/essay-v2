@@ -145,7 +145,15 @@ export default function VariantA() {
           <p>This year, we will save hundreds of thousands of dollars on developers, low-level writers, designers, back-office workers, and customer service representatives. In the years to come, we expect those savings to increase to millions.</p>
           <p>I&apos;m certain that we aren&apos;t an outlier. We are an early indicator of the massive shift that is coming.</p>
         </DialogueTurn>
+      </div>
 
+      <MarginCallout
+        number="6.6%"
+        label="Arts & culture growth rate, more than double the 2.9% overall economy"
+        source="Bureau of Economic Analysis"
+      />
+
+      <div className="px-[8%] md:px-[16%]">
         <DialogueTurn speaker="mary">
           <p>But contrary to the assumptions of many concerned commentators, we aren&apos;t putting that money into a vault. We&apos;re putting it directly into the communities we activate—in a way that we believe will be more economically, culturally, and locally productive than the centralized, salaried knowledge work of the past era.</p>
         </DialogueTurn>
@@ -155,12 +163,6 @@ export default function VariantA() {
       <BigNumberInterrupt
         number="$1.17T"
         label="Arts & cultural economic activity in 2023 — roughly 4.2% of GDP"
-        source="Bureau of Economic Analysis"
-      />
-
-      <MarginCallout
-        number="6.6%"
-        label="Arts & culture growth rate, more than double the 2.9% overall economy"
         source="Bureau of Economic Analysis"
       />
 
