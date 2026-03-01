@@ -71,19 +71,19 @@ body::before {
 }
 .gradient-blob-1 {
   width: 600px; height: 600px;
-  background: radial-gradient(circle, #9750CD, transparent 70%);
+  background: radial-gradient(circle, #C9A55C, transparent 70%);
   top: -200px; left: 10%;
   animation: morph1 12s infinite alternate;
 }
 .gradient-blob-2 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, #1D90BF, transparent 70%);
+  background: radial-gradient(circle, #C9A55C, transparent 70%);
   bottom: -150px; right: 10%;
   animation: morph2 15s infinite alternate;
 }
 .gradient-blob-3 {
   width: 400px; height: 400px;
-  background: radial-gradient(circle, #F525A3, transparent 70%);
+  background: radial-gradient(circle, #C9A55C, transparent 70%);
   top: 30%; left: 50%;
   animation: morph3 10s infinite alternate;
 }
@@ -171,7 +171,7 @@ body::before {
   top: 0;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, #F525A3, #1D90BF, #9750CD);
+  background: #C9A55C;
   z-index: 9999;
   transition: width 0.1s linear;
 }
@@ -206,6 +206,49 @@ body::before {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #0B0B0C; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* ═══ Reduced Motion Support ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gradient-blob,
+  body::before {
+    animation: none;
+  }
+
+  .mark-animate {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .fade-up-delay-1,
+  .fade-up-delay-2,
+  .fade-up-delay-3 {
+    opacity: 1;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {

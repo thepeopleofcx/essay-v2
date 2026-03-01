@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 interface Era {
   id: string;
   era: string;
-  duration: string;
+  period: string;
   description: string;
-  stat: string;
+  shift: string;
 }
 
 interface Props {
@@ -15,7 +15,6 @@ interface Props {
 
 /**
  * SIGNATURE MOMENT #3: Parallax timeline between eras
- * Each era slides in with a subtle parallax shift, creating a sense of deep time.
  */
 export default function TimelineParallax({ eras }: Props) {
   return (
@@ -36,7 +35,6 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
     const el = ref.current;
     if (!el) return;
 
-    // Reduced motion check
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const observer = new IntersectionObserver(
@@ -57,7 +55,7 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
       const center = rect.top + rect.height / 2;
       const vh = window.innerHeight;
       const progress = (center - vh / 2) / vh;
-      setOffset(progress * 40); // subtle parallax factor
+      setOffset(progress * 40);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -74,10 +72,7 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
       ref={ref}
       className="relative min-h-[70vh] flex items-center px-[8%] md:px-[16%]"
     >
-      {/* Vertical timeline line */}
       <div className="absolute left-[8%] md:left-[12%] top-0 bottom-0 w-px bg-paper/5" />
-
-      {/* Era dot */}
       <div
         className={`absolute left-[8%] md:left-[12%] w-2 h-2 rounded-full -translate-x-[3px] transition-all duration-1000 ${
           visible ? "bg-[#C9A55C] scale-100" : "bg-paper/10 scale-0"
@@ -91,7 +86,7 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
         style={{ transform: `translateY(${offset}px)` }}
       >
         <p className="font-sans text-xs uppercase tracking-[0.28em] text-muted/50 mb-2">
-          {era.duration}
+          {era.period}
         </p>
         <h3 className="font-serif text-3xl md:text-5xl text-paper mb-4">
           {era.era}
@@ -100,13 +95,11 @@ function TimelineEra({ era, index, total }: { era: Era; index: number; total: nu
           {era.description}
         </p>
         <span
-          className={`inline-block font-serif text-2xl md:text-3xl transition-all duration-[1.4s] delay-300 ${
-            visible
-              ? "opacity-100 text-[#C9A55C]"
-              : "opacity-0"
+          className={`inline-block font-serif text-xl md:text-2xl transition-all duration-[1.4s] delay-300 ${
+            visible ? "opacity-100 text-[#C9A55C]" : "opacity-0"
           }`}
         >
-          {era.stat}
+          {era.shift}
         </span>
       </div>
     </div>

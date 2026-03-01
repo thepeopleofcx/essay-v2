@@ -1,41 +1,56 @@
 import Link from "next/link";
+import CursorGlow from "./components/CursorGlow";
 
-export default function HomePage() {
+export const metadata = {
+  title: "What If It All Goes Right? — William & Mary",
+  description: "A front-line dispatch from deep within the AI transition. Two variants.",
+};
+
+export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--color-ink)] px-[8%] py-20 text-[var(--color-paper)] md:px-[12%] lg:px-[16%]">
-      <section className="mx-auto max-w-5xl">
-        <p className="text-xs uppercase tracking-[0.28em] text-[#C9A55C]">Essay Variants</p>
-        <h1 className="mt-4 font-serif text-[clamp(2.5rem,8vw,6.5rem)] leading-[0.88]">
-          What If It All Goes Right?
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-[var(--color-muted)]">
-          Two reading experiences built from the same source essay: cinematic immersion and interactive thesis lab.
-        </p>
+    <main className="relative bg-ink min-h-screen flex flex-col items-center justify-center px-[8%]">
+      <CursorGlow />
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <Link
-            href="/essay/a"
-            className="group border border-[var(--color-paper)]/15 p-6 transition hover:border-[#C9A55C66] hover:bg-[var(--color-paper)]/[0.03]"
-          >
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">Variant A</p>
-            <h2 className="mt-2 font-serif text-4xl">Cinematic Editorial Scroll</h2>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--color-paper)]/85">
-              Full-bleed manifesto scroll with interruptions, portrait dialogue overlays, and a vertical time-axis.
-            </p>
-          </Link>
+      {/* Subtle blob */}
+      <div className="absolute w-[500px] h-[500px] rounded-full opacity-[0.04] blur-[100px] bg-[#C9A55C] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
-          <Link
-            href="/essay/b"
-            className="group border border-[var(--color-paper)]/15 p-6 transition hover:border-[#C9A55C66] hover:bg-[var(--color-paper)]/[0.03]"
-          >
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">Variant B</p>
-            <h2 className="mt-2 font-serif text-4xl">Interactive Thesis Lab</h2>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--color-paper)]/85">
-              Sticky argument spine, fast/deep reading modes, threaded dialogue, evidence cards, and counterarguments.
-            </p>
-          </Link>
-        </div>
-      </section>
+      <h1
+        className="font-serif text-paper text-center leading-[0.9] tracking-tight mark-animate relative z-10 mb-4"
+        style={{ fontSize: "clamp(2rem, 6vw, 5rem)" }}
+      >
+        What If It All Goes Right?
+      </h1>
+
+      <p className="font-sans text-sm text-muted text-center max-w-md mb-2 fade-up fade-up-delay-1">
+        A front-line dispatch from deep within the AI transition
+      </p>
+      <p className="font-sans text-xs uppercase tracking-[0.28em] text-muted/40 mb-16 fade-up fade-up-delay-2">
+        by William &amp; Mary
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 fade-up fade-up-delay-3">
+        <Link
+          href="/essay/a"
+          className="group text-center"
+        >
+          <div className="border border-paper/10 group-hover:border-[#C9A55C]/30 rounded-sm px-10 py-8 transition-all duration-500 group-hover:translate-y-[-2px]">
+            <p className="font-sans text-xs uppercase tracking-[0.28em] text-muted/40 mb-3">Variant A</p>
+            <p className="font-serif text-xl text-paper mb-2">Cinematic Editorial</p>
+            <p className="font-sans text-sm text-muted/50">Slow scroll. Full-bleed stats. Manifesto energy.</p>
+          </div>
+        </Link>
+
+        <Link
+          href="/essay/b"
+          className="group text-center"
+        >
+          <div className="border border-paper/10 group-hover:border-[#C9A55C]/30 rounded-sm px-10 py-8 transition-all duration-500 group-hover:translate-y-[-2px]">
+            <p className="font-sans text-xs uppercase tracking-[0.28em] text-muted/40 mb-3">Variant B</p>
+            <p className="font-serif text-xl text-paper mb-2">Interactive Thesis Lab</p>
+            <p className="font-sans text-sm text-muted/50">Sidebar nav. Toggle depth. Explore the argument.</p>
+          </div>
+        </Link>
+      </div>
     </main>
   );
 }

@@ -1,71 +1,89 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 
-type ScrollComparisonProps = {
-  thenLabel: string;
-  thenValue: string;
-  nowLabel: string;
-  nowValue: string;
+interface ScrollComparisonProps {
+  before: string;
+  after: string;
+  label: string;
   source?: string;
-};
+}
 
-export default function ScrollComparison({
-  thenLabel,
-  thenValue,
-  nowLabel,
-  nowValue,
-  source,
-}: ScrollComparisonProps) {
+/**
+ * SIGNATURE MOMENT #4: Before/After scroll comparison
+ * The "before" number morphs into the "after" as you scroll through.
+ */
+export default function ScrollComparison({ before, after, label, source }: ScrollComparisonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+    const el = ref.current;
+    if (!el) return;
 
-    const update = () => {
-      const rect = element.getBoundingClientRect();
-      const viewport = window.innerHeight;
-      const total = rect.height + viewport;
-      const current = viewport - rect.top;
-      const next = Math.max(0, Math.min(1, current / total));
-      setProgress(next);
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = 1 - (rect.top / (vh * 0.6));
+      setProgress(Math.max(0, Math.min(1, prefersReduced ? 1 : p)));
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
+  const showAfter = progress > 0.5;
+
   return (
-    <section
+    <div
       ref={ref}
-      className="my-14 border-y border-[var(--color-paper)]/10 py-8"
-      aria-label="scroll comparison"
+      className="relative flex min-h-[60vh] items-center justify-center px-[8%] overflow-hidden"
     >
-      <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">then to now</p>
-      <div className="mt-6 grid gap-8 md:grid-cols-2">
+      <div className="text-center">
         <div
-          className="transition-opacity duration-500 motion-reduce:transition-none"
-          style={{ opacity: 1 - progress * 0.7 }}
+          className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-700"
+          style={{
+            opacity: showAfter ? 0 : visible ? 1 : 0,
+            transform: showAfter ? "translateY(-30px) scale(0.95)" : "translateY(0) scale(1)",
+          }}
         >
-          <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">{thenLabel}</p>
-          <p className="font-serif text-5xl text-[var(--color-paper)] md:text-6xl">{thenValue}</p>
+          <span className="font-serif text-paper/40" style={{ fontSize: "clamp(3rem, 10vw, 8rem)" }}>
+            {before}
+          </span>
+          <p className="mt-4 text-xs uppercase tracking-[0.28em] text-muted/40">then</p>
         </div>
+
         <div
-          className="transition-opacity duration-500 motion-reduce:transition-none"
-          style={{ opacity: 0.3 + progress * 0.7 }}
+          className="flex flex-col items-center justify-center transition-all duration-700"
+          style={{
+            opacity: showAfter && visible ? 1 : 0,
+            transform: showAfter ? "translateY(0) scale(1)" : "translateY(30px) scale(1.05)",
+          }}
         >
-          <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">{nowLabel}</p>
-          <p className="font-serif text-5xl text-[#C9A55C] md:text-6xl">{nowValue}</p>
+          <span className="font-serif text-paper" style={{ fontSize: "clamp(3rem, 12vw, 10rem)" }}>
+            {after}
+          </span>
+          <p className="mt-2 font-sans text-lg md:text-xl text-muted max-w-md">{label}</p>
+          <p className="mt-1 text-xs uppercase tracking-[0.28em] text-[#C9A55C]/60">now</p>
+          {source && (
+            <p className="mt-4 text-xs uppercase tracking-[0.24em] text-muted/30">{source}</p>
+          )}
         </div>
       </div>
-      {source ? <p className="mt-4 text-xs text-[var(--color-muted)]">Source: {source}</p> : null}
-    </section>
+    </div>
   );
 }
