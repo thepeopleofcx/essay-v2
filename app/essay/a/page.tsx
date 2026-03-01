@@ -134,12 +134,6 @@ export default function VariantA() {
         source="Internal operations data"
       />
 
-      <MarginCallout
-        number="~15%"
-        label="Productivity increase from GenAI, with biggest gains among less-experienced workers"
-        source="Quarterly Journal of Economics"
-      />
-
       {/* Economics of the Shift */}
       <SectionLabel
         label="The Economics of the Shift"
