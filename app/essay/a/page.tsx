@@ -228,26 +228,6 @@ export default function VariantA() {
 
       <TimelineParallax eras={timelineEpochs} />
 
-      {/* ═══ Life expectancy comparison ═══ */}
-      <ScrollComparison
-        before="32 yrs"
-        after="71 yrs"
-        label="Global life expectancy, 1900 → 2021"
-        source="Our World in Data"
-      />
-
-      <ScrollComparison
-        before="3,500 hrs"
-        after="1,300 hrs"
-        label="Annual working hours in wealthy countries"
-        source="Historical data"
-      />
-
-      <BigNumberInterrupt
-        number="1B → 8B"
-        label="World population growth through the industrial era"
-      />
-
       <div className="cx-rule mx-[16%]" />
 
       {/* ═══════════════════════════════════════════ */}
