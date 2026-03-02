@@ -32,7 +32,7 @@ export default function ReaderToggle({ children }: { children: React.ReactNode }
 
       {/* Reader mode overlay */}
       {reader ? (
-        <div className="reader-mode min-h-screen bg-[#FAFAF8] text-[#1a1a1a] pb-24">
+        <div className="reader-mode min-h-screen bg-[#FAFAF8] text-[#1a1a1a] pb-24 [&>main]:bg-transparent [&_section]:bg-transparent [&_.bg-ink]:!bg-transparent">
           {children}
         </div>
       ) : (
