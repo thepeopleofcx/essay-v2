@@ -348,8 +348,18 @@ export default function VariantA() {
         />
       </section>
 
-      {/* ═══ SIGNATURE MOMENT #5: Closing signature ═══ */}
-      <ClosingSignature />
+      {/* ═══ Closing signature — text only ═══ */}
+      <div className="py-24 md:py-32 px-[8%] md:px-[16%] text-center">
+        <RevealOnScroll>
+          <p className="font-serif text-xl md:text-2xl text-paper/80">William &amp; Mary</p>
+          <div className="flex justify-center mt-4">
+            <div className="w-24 h-px bg-[#C9A55C]/50" />
+          </div>
+          <p className="mt-6 font-sans text-xs uppercase tracking-[0.28em] text-muted/40">
+            Cofounders · A cultural technology company · 2025
+          </p>
+        </RevealOnScroll>
+      </div>
 
       {/* ═══════════════════════════════════════════ */}
       {/* BIBLIOGRAPHY */}
