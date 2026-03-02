@@ -371,8 +371,15 @@ export default function VariantA() {
           </p>
           <ul className="space-y-3 max-w-2xl">
             {bibliography.map((item, i) => (
-              <li key={i} className="font-sans text-sm text-muted/60 leading-relaxed">
-                {item}
+              <li key={i}>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-muted/60 leading-relaxed hover:text-paper/80 transition-colors duration-300"
+                >
+                  {item.title} ↗
+                </a>
               </li>
             ))}
           </ul>

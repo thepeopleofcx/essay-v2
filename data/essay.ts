@@ -140,16 +140,16 @@ export const counterarguments: Counterargument[] = [
   { id: "c3", question: "But what about social fragmentation?", response: "The response is local community infrastructure and culture-first reinvestment." },
 ];
 
-export const bibliography: string[] = [
-  "David Graeber - Bullshit Jobs: A Theory (2018)",
-  "David Autor - Why Are There Still So Many Jobs? (2015)",
-  "Acemoglu & Restrepo - Automation and New Tasks (2019)",
-  "Brynjolfsson, Li, Raymond - Generative AI at Work (QJE, 2025)",
-  "Card, Kluve, Weber - What Works? (NBER)",
-  "William Baumol - The Cost Disease (2012)",
-  "Stanford HAI - AI Index 2025",
-  "IMF - Gen-AI and the Future of Work (2024)",
-  "OECD - Generative AI and Productivity (2025)",
+export const bibliography: { title: string; url: string }[] = [
+  { title: "David Graeber — Bullshit Jobs: A Theory (2018)", url: "https://theanarchistlibrary.org/library/david-graeber-bullshit-jobs" },
+  { title: "David Autor — Why Are There Still So Many Jobs? (2015)", url: "https://economics.mit.edu/sites/default/files/publications/AutorJEP2015.pdf" },
+  { title: "Acemoglu & Restrepo — Automation and New Tasks (2019)", url: "https://www.aeaweb.org/articles?id=10.1257/jep.33.2.3" },
+  { title: "Brynjolfsson, Li, Raymond — Generative AI at Work (QJE, 2025)", url: "https://academic.oup.com/qje/article/139/3/1721/7607605" },
+  { title: "Card, Kluve, Weber — What Works? (NBER)", url: "https://www.nber.org/papers/w21431" },
+  { title: "William Baumol — The Cost Disease (2012)", url: "https://yalebooks.yale.edu/book/9780300198157/the-cost-disease/" },
+  { title: "Stanford HAI — AI Index 2025", url: "https://aiindex.stanford.edu/report/" },
+  { title: "IMF — Gen-AI and the Future of Work (2024)", url: "https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" },
+  { title: "OECD — Generative AI and Productivity (2025)", url: "https://www.oecd.org/en/publications/the-effects-of-generative-ai-on-high-skilled-workers_91e36406-en.html" },
 ];
 
 export const speakerPortraits: Record<Speaker, string> = {
