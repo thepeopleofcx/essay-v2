@@ -5,12 +5,12 @@ import BigNumberInterrupt from "@/app/components/BigNumberInterrupt";
 import WordByWordReveal from "@/app/components/WordByWordReveal";
 import ScrollComparison from "@/app/components/ScrollComparison";
 import TimelineParallax from "@/app/components/TimelineParallax";
-import ClosingSignature from "@/app/components/ClosingSignature";
 import CollapsibleMeta from "@/app/components/CollapsibleMeta";
 import SectionLabel from "@/app/components/SectionLabel";
 import DialogueTurn from "@/app/components/DialogueTurn";
 import MarginCallout from "@/app/components/MarginCallout";
 import RevealOnScroll from "@/app/components/RevealOnScroll";
+import ReaderToggle from "@/app/components/ReaderToggle";
 
 export const metadata = {
   title: "What If It All Goes Right? — William & Mary",
@@ -19,6 +19,7 @@ export const metadata = {
 
 export default function VariantA() {
   return (
+    <ReaderToggle>
     <main className="relative bg-ink min-h-screen">
       <ScrollProgress />
       <CursorGlow />
@@ -392,5 +393,6 @@ export default function VariantA() {
         </div>
       </section>
     </main>
+    </ReaderToggle>
   );
 }

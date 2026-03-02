@@ -207,6 +207,123 @@ body::before {
 ::-webkit-scrollbar-track { background: #0B0B0C; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
+/* ═══ Reader Mode ═══ */
+.reader-mode {
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.reader-mode * {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+.reader-mode::before {
+  display: none !important;
+}
+
+/* Override all dark backgrounds and text colors */
+.reader-mode .bg-ink,
+.reader-mode .bg-\[\\#0B0B0C\],
+.reader-mode [class*="bg-ink"],
+.reader-mode [class*="bg-black"] {
+  background-color: #FAFAF8 !important;
+}
+
+.reader-mode .text-paper,
+.reader-mode [class*="text-paper"] {
+  color: #1a1a1a !important;
+}
+
+.reader-mode .text-muted,
+.reader-mode [class*="text-muted"] {
+  color: #555 !important;
+}
+
+.reader-mode [class*="text-\[\\#C9A55C\]"],
+.reader-mode [class*="text-\\[\\#C9A55C\\]"] {
+  color: #8B6914 !important;
+}
+
+.reader-mode [class*="bg-\[\\#C9A55C\]"] {
+  background-color: #8B6914 !important;
+}
+
+/* Section labels and headings */
+.reader-mode h1, .reader-mode h2, .reader-mode h3 {
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  color: #1a1a1a !important;
+}
+
+.reader-mode p, .reader-mode li, .reader-mode span {
+  color: #333 !important;
+}
+
+/* Hide decorative elements */
+.reader-mode .scroll-progress,
+.reader-mode [class*="cursor-glow"],
+.reader-mode [class*="pointer-events-none"][class*="fixed"],
+.reader-mode .gradient-blob,
+.reader-mode [class*="blur-"],
+.reader-mode [class*="mix-blend"] {
+  display: none !important;
+}
+
+/* Simplify layout — tighter, more readable */
+.reader-mode section,
+.reader-mode [class*="px-\[8"] {
+  padding-left: 8% !important;
+  padding-right: 8% !important;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Reduce vertical spacing */
+.reader-mode [class*="py-16"],
+.reader-mode [class*="py-24"],
+.reader-mode [class*="py-32"],
+.reader-mode [class*="py-48"],
+.reader-mode [class*="min-h-screen"] {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  min-height: auto !important;
+}
+
+/* Stat numbers — smaller, inline */
+.reader-mode [style*="clamp"] {
+  font-size: 2.5rem !important;
+  font-family: 'Georgia', serif !important;
+  color: #1a1a1a !important;
+}
+
+/* Rule dividers */
+.reader-mode .cx-rule {
+  background: #ddd !important;
+  margin: 2rem auto !important;
+  max-width: 700px;
+}
+
+/* Links */
+.reader-mode a {
+  color: #8B6914 !important;
+  text-decoration: underline;
+}
+
+/* Borders */
+.reader-mode [class*="border-paper"] {
+  border-color: #e0e0e0 !important;
+}
+
+/* Accordion buttons */
+.reader-mode button {
+  color: #1a1a1a !important;
+}
+
 /* ═══ Reduced Motion Support ═══ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
