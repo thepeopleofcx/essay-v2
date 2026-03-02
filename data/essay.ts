@@ -144,7 +144,7 @@ export const bibliography: { title: string; url: string }[] = [
   { title: "David Graeber — Bullshit Jobs: A Theory (2018)", url: "https://theanarchistlibrary.org/library/david-graeber-bullshit-jobs" },
   { title: "David Autor — Why Are There Still So Many Jobs? (2015)", url: "https://www.aeaweb.org/articles?id=10.1257/jep.29.3.3" },
   { title: "Acemoglu & Restrepo — Automation and New Tasks (2019)", url: "https://www.aeaweb.org/articles?id=10.1257/jep.33.2.3" },
-  { title: "Brynjolfsson, Li, Raymond — Generative AI at Work (QJE, 2025)", url: "https://academic.oup.com/qje/article/139/3/1721/7607605" },
+  { title: "Brynjolfsson, Li, Raymond — Generative AI at Work (QJE, 2025)", url: "https://www.nber.org/papers/w31161" },
   { title: "Card, Kluve, Weber — What Works? (NBER)", url: "https://www.nber.org/papers/w21431" },
   { title: "William Baumol — The Cost Disease (2012)", url: "https://yalebooks.yale.edu/book/9780300198157/the-cost-disease/" },
   { title: "Stanford HAI — AI Index 2025", url: "https://aiindex.stanford.edu/report/" },
