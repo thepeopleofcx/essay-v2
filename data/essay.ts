@@ -149,7 +149,7 @@ export const bibliography: { title: string; url: string }[] = [
   { title: "William Baumol — The Cost Disease (2012)", url: "https://yalebooks.yale.edu/book/9780300198157/the-cost-disease/" },
   { title: "Stanford HAI — AI Index 2025", url: "https://aiindex.stanford.edu/report/" },
   { title: "IMF — Gen-AI and the Future of Work (2024)", url: "https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379" },
-  { title: "OECD — Generative AI and Productivity (2025)", url: "https://www.oecd.org/en/publications/the-effects-of-generative-ai-on-high-skilled-workers_91e36406-en.html" },
+  { title: "OECD — Generative AI and Productivity (2025)", url: "https://www.oecd.org/digital/artificial-intelligence/" },
 ];
 
 export const speakerPortraits: Record<Speaker, string> = {
